@@ -4,3 +4,8 @@ block content
     .title= book.title
     .author= book.author
     .description= book.description
+    div
+        a(href="/edit/#{book.isbn}") Edit
+    form(action="/books/#{book.isbn}", method="post")
+        input(name="_method", value="delete", type="hidden")
+        input(type="submit", value="Remove book")

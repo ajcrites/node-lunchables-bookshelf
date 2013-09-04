@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+    form(action="/books/#{book.isbn}", method="post")
+        label Title:
+            input(name="title", value=book.title, required)
+        label Author:
+            input(name="author", value=book.author, required)
+        label Description:
+            textarea(name="description", required)= book.description
+        input(name="_method", value="put", type="hidden")
+        input(type="submit", value="Update book")
+    a(href="/books/#{book.isbn}") Cancel
